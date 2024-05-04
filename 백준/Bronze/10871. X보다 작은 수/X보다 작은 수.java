@@ -6,6 +6,7 @@ import java.util.StringTokenizer;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
         st = new StringTokenizer(br.readLine(), " ");
@@ -18,7 +19,8 @@ public class Main {
         int temp = 0;
         for (int i = 0; i < N; i++) {
             temp = Integer.parseInt(st.nextToken());
-            if (temp < X) System.out.print(temp + " ");
+            if (temp < X) sb.append(temp).append(" ");
         }
+        System.out.println(sb);
     }
 }
