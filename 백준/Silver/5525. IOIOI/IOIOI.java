@@ -10,21 +10,22 @@ public class Main {
         String S = br.readLine();
         br.close();
 
+        int result = 0;
         int count = 0;
-        int patternLength = 2 * N + 1;
 
-        for (int i = 0; i <= M - patternLength; i++) {
-            boolean matched = true;
-            if (S.charAt(i) == 'I') {
-                for (int j = 1; j < patternLength; j++) {
-                    if ((j % 2 == 1 && S.charAt(i + j) != 'O') || (j % 2 == 0 && S.charAt(i + j) != 'I')) {
-                        matched = false;
-                        break;
-                    }
+        for (int i = 1; i < M - 1; i++) {
+            if (S.charAt(i-1) == 'I' && S.charAt(i) == 'O' && S.charAt(i+1) == 'I') {
+                count++;
+                if (count == N) {
+                    result++;
+                    count--;
                 }
-                if (matched) count++;
+                i++;
+            } else {
+                count = 0;
             }
         }
-        System.out.println(count);
+
+        System.out.println(result);
     }
 }
