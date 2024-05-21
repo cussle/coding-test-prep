@@ -9,8 +9,8 @@ public class Main {
         String input = br.readLine();
         br.close();
 
-        int sum = 0;
-        int pow = 1;
+        long sum = 0;
+        long pow = 1;
         for (int i = 0; i < L; i++) {
             sum = (sum + (input.charAt(i) - 'a' + 1) * pow) % 1234567891;
             pow = (pow * 31) % 1234567891;
