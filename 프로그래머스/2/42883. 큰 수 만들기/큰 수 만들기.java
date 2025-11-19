@@ -8,17 +8,15 @@ class Solution {
         for (int i = 0; i < numberLength; i++) {
             int cur = number.charAt(i) - '0';
             
-            while (!stack.isEmpty() && k > 0 && stack.peek() < cur) {
+            while (!stack.isEmpty() && stack.peek() < cur && k --> 0) {
                 stack.pop();
-                k--;
             }
             
             stack.push(cur);
         }
         
-        while (k > 0) {
+        while (k --> 0) {
             stack.pop();
-            k--;
         }
         
         StringBuilder answer = new StringBuilder();
