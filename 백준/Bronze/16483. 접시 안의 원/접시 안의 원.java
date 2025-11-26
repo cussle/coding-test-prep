@@ -5,6 +5,6 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int t = Integer.parseInt(br.readLine());
 
-        System.out.println(Math.round(Math.pow(t / 2.0, 2)));
+        System.out.println(t * t / 4);
     }
 }
