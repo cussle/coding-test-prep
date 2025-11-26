@@ -11,12 +11,14 @@ public class Main {
         for (int i = 1; i <= p; i++) {
             st = new StringTokenizer(br.readLine());
             int n = Integer.parseInt(st.nextToken());
-            float d = Float.parseFloat(st.nextToken());
-            float a = Float.parseFloat(st.nextToken());
-            float b = Float.parseFloat(st.nextToken());
-            float f = Float.parseFloat(st.nextToken());
+            double d = Double.parseDouble(st.nextToken());
+            double a = Double.parseDouble(st.nextToken());
+            double b = Double.parseDouble(st.nextToken());
+            double f = Double.parseDouble(st.nextToken());
 
-            sb.append(i).append(" ").append(d / (a + b) * f).append("\n");
+            sb.append(n).append(" ")
+                .append(String.format("%.6f", d / (a + b) * f))
+                .append("\n");
         }
 
         System.out.println(sb.toString());
