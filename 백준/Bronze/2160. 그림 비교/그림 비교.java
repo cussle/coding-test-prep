@@ -18,16 +18,15 @@ public class Main {
         int idx1 = -1, idx2 = -1;
 
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if (i == j) {
-                    continue;
-                }
-
+            for (int j = i + 1; j < n; j++) {
                 int cnt = 0;
-                for (int r = 0; r < 5; r++) {
+                for (int r = 0; r < 5 && cnt < min; r++) {
                     for (int c = 0; c < 7; c++) {
                         if (board[5 * i + r][c] != board[5 * j + r][c]) {
                             cnt++;
+                            if (cnt > min) {
+                                break;
+                            }
                         }
                     }
                 }
