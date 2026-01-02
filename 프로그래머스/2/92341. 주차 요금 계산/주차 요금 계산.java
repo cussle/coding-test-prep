@@ -21,17 +21,17 @@ class Solution {
         
         int idx = 0;
         int answer[] = new int[accTimes.size()];
-        for (String key : accTimes.keySet()) {
-            if (accTimes.get(key) < 1) {
-                accTimes.put(key, accTimes.get(key) + (23 * 60 + 59));
+        for (Map.Entry<String, Integer> e : accTimes.entrySet()) {
+            int total = e.getValue();
+            if (total <= 0) {
+                total += (23 * 60 + 59);
             }
             
-            int curTime = accTimes.getOrDefault(key, 0);
-            answer[idx] = fees[1];
-            if (curTime > fees[0]) {
-                answer[idx] += ((curTime - fees[0] + fees[2] - 1) / fees[2]) * fees[3];
+            int fee = fees[1];
+            if (total > fees[0]) {
+                fee += ((total - fees[0] + fees[2] - 1) / fees[2]) * fees[3];
             }
-            idx++;
+            answer[idx++] = fee;
         }
 
         return answer;
