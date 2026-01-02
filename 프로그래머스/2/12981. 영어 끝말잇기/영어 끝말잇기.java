@@ -3,32 +3,25 @@ import java.util.*;
 class Solution {
     public int[] solution(int n, String[] words) {
         int length = words.length;
-        int[] answer = new int[2];
         Set<String> logs = new HashSet<>();
         
-        int i = 0;
-        String cur = words[i];
-        for (i = 1; i < length; i++) {
+        logs.add(words[0]);
+        for (int i = 1; i < length; i++) {
+            String prev = words[i - 1];
+            String cur = words[i];
+            
+            boolean wrongWord = prev.charAt(prev.length() - 1) != cur.charAt(0);
+            boolean duplicated = logs.contains(cur);
+            
+            if (wrongWord || duplicated) {
+                int person = i % n + 1;
+                int turn = i / n + 1;
+                return new int[]{person, turn};
+            }
+            
             logs.add(cur);
-            char prev = cur.charAt(cur.length() - 1);
-            cur = words[i];
-            
-            if (prev != cur.charAt(0)) {
-                break;
-            }
-            
-            if (logs.contains(cur)) {
-                break;
-            }
         }
         
-        if (i != length) {
-            i++;
-            System.out.println(i);
-            answer[0] = i % n == 0 ? n : i % n;
-            answer[1] = i % n == 0 ? i / n : i / n + 1;
-        }
-
-        return answer;
+        return new int[]{0, 0};
     }
 }
