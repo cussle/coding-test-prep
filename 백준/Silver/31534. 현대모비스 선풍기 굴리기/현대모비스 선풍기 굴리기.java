@@ -15,6 +15,12 @@ public class Main {
             return;
         }
 
+        if (b < a) {
+            double temp = b;
+            b = a;
+            a = temp;
+        }
+
         double x = a * h / (b - a);
         double ySquare = Math.pow(x + h, 2) + Math.pow(b, 2);
         double zSquare = Math.pow(x, 2) + Math.pow(a, 2);
